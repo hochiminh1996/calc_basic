@@ -13,7 +13,6 @@ function insert(valor) {
 
     let resultado = document.querySelector("#resultado").innerHTML;
     // valor initial do campo #resultado -> que será "" na primeira vez.
-    alert(isNaN(Number(valor)))
 
     // Se o valor do evento ativado for "c" => ativa função limpar
     if (valor == "c") {
