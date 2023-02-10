@@ -13,18 +13,21 @@ function insert(valor) {
 
     let resultado = document.querySelector("#resultado").innerHTML;
     // valor initial do campo #resultado -> que será "" na primeira vez.
+    alert(isNaN(Number(valor)))
 
-    // se for c => ativa função limpar
+    // Se o valor do evento ativado for "c" => ativa função limpar
     if (valor == "c") {
         limpar();
     } else if (valor == "<") {
-        //se for "<" ativa a função apagar
+        //Se o valor do evento ativado for "<" ativa a função apagar
         apagar();
     } else if (["+", "-", "*", "/", "."].includes(valor)) {
+
         if (resultado.length > 0 && !isNaN(parseInt(resultado[resultado.length - 1]))) {
             resultado += valor;
             document.querySelector("#resultado").innerHTML = resultado;
         }
+
     } else {
         if (document.querySelector("#resultado").innerHTML.length > 0 && valor == "=") {
             calcular();
