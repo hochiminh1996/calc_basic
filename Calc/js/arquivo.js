@@ -11,6 +11,8 @@ document.querySelectorAll('.botao').forEach(function (botao) {
 // função que insere os valores
 function insert(valor) {
 
+    remove_reticencia();// Remove a reticência se, por ventura, o usuário tentou calcular sem inserir os números. E, como consequência, lá na função calcular, ele adiciona uma (...). Se o usuário preencher um número, logo após tentar calcular sem valor, ele remove a (...) evitando que a saída fique assim : ...5 ou ...7 
+
     let resultado = document.querySelector("#resultado").innerHTML;
     // valor initial do campo #resultado -> que será "" na primeira vez.
 
@@ -28,7 +30,7 @@ function insert(valor) {
         }
 
     } else {
-        if (document.querySelector("#resultado").innerHTML.length > 0 && valor == "=") {
+        if (valor == "=") {
             calcular();
         } else {
             resultado += valor;
@@ -43,7 +45,12 @@ function limpar() {
     document.querySelector("#resultado").innerHTML = "";
 }
 
-
+function remove_reticencia() {
+    if (document.querySelector("#resultado").innerHTML == "...") {
+        // se existir reticência, ele remove.
+        document.querySelector("#resultado").innerHTML = "";
+    }
+}
 
 // função que apaga o último elemento digitado
 function apagar() {
@@ -63,9 +70,13 @@ function apagar() {
 function calcular() {
     let res_calc = document.querySelector("#resultado").innerHTML;
     // pegando a expressão montada no elemento #resultado : 1 + 1
-
-    document.querySelector("#resultado").innerHTML = eval(res_calc);
-    // a função eval() pega uma string e realiza o calculo de acordo com o valor passado. No caso, ele leu uma string : 1+1 e, em seguinda, efetuou o cálculo e inseriu no nosso elemento resultado
-
+    // alert(res_calc.length)
+    if (res_calc) {
+        document.querySelector("#resultado").innerHTML = eval(res_calc);
+        // a função eval() pega uma string e realiza o calculo de acordo com o valor passado. No caso, ele leu uma string : 1+1 e, em seguinda, efetuou o cálculo e inseriu no nosso elemento resultado
+    } else {
+        document.querySelector("#resultado").innerHTML = "...";
+        // adiciona reticência se houve uma tentativa de calcular valores sem inserir números
+    }
 }
 
