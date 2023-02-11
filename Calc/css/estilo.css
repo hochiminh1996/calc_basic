@@ -106,7 +106,7 @@ footer{
 }
 
 footer:hover{
-    transform: scale(2);
+    transform: scale(1.9);
     transition:  all linear .1s;
-    background-image: linear-gradient(to left, #14BDEB, transparent);
+    font-style: italic;
 }
