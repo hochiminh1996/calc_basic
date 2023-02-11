@@ -4,9 +4,7 @@
 
 
 <p>O mais engraçado é que ficou parecendo uma calculadora do filme Tron kkk</p>
-<div align="center">
- <img src="#" alt="">
-</div>
+
 
 <a href="https://hochiminh1996.github.io/calc_basic/Calc/"> 💻 Clique aqui </a>
 
