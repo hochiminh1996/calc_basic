@@ -96,3 +96,16 @@ body{
     font-size: 1.2em;
     background-color: #14BDEB;
 }
+
+footer{
+    color: #14BDEB;
+    margin-top: 20px;
+    display: inline-block;
+    transform: scale(1.5);
+}
+
+footer:hover{
+    transform: scale(2);
+    transition:  all linear .1s;
+    background-image: linear-gradient(to left, #14BDEB, transparent);
+}
